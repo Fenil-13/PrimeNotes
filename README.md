@@ -1,5 +1,5 @@
 
-# Prime Note App  - Learn Android Architecture Components
+# Prime Note App  - Learn Android Architecture Components Basic
 
 Purpose of  making app is to learn and understand basic Architecture of android and implementation.
 ## Main Hierarchy 
