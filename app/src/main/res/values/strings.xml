@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PrimeNote</string>
+    <string name="title_activity_edit_note">EditNoteActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_the_note_here">ENTER THE NOTE HERE</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="add_sample_data">ADD SAMPLE DATA</string>
+    <string name="delete_all_data">DELETE ALL DATA</string>
+    <string name="new_note">New Note</string>
+</resources>
