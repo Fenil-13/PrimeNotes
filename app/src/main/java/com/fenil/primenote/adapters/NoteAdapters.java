@@ -15,6 +15,7 @@ import com.fenil.primenote.activities.EditNoteActivity;
 import com.fenil.primenote.databinding.ItemNoteBinding;
 import com.fenil.primenote.models.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoteAdapters extends RecyclerView.Adapter<NoteAdapters.MyViewHolder> {
@@ -35,6 +36,8 @@ public class NoteAdapters extends RecyclerView.Adapter<NoteAdapters.MyViewHolder
         return new MyViewHolder(binding);
 
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull NoteAdapters.MyViewHolder holder, int position) {

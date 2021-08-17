@@ -4,18 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     tools:context=".activities.MainActivity">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNotes"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white">
+            <EditText
+                android:id="@+id/etSearchNote"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_here"
+                android:layout_margin="@dimen/tv_10"
+                android:padding="@dimen/tv_10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:iconifiedByDefault="false"
+                android:background="@color/white"/>
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_search"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/tv_10"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNotes"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            />
+
+
+    </LinearLayout>
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddNote"

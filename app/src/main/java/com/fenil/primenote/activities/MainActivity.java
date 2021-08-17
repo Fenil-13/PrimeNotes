@@ -11,9 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.fenil.primenote.R;
@@ -48,6 +52,62 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent newNoteIntent=new Intent(MainActivity.this,EditNoteActivity.class);
                 startActivity(newNoteIntent);
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        binding.ivSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!binding.etSearchNote.getText().toString().isEmpty()){
+                    String query=binding.etSearchNote.getText().toString();
+                    if(!query.isEmpty()){
+                        mNoteList=mViewModel.getFilterList(query);
+                        Log.d("fenil", "onQueryTextSubmit: String "+query);
+                        Log.d("fenil", "onQueryTextSubmit: "+mNoteList.size());
+                    }else{
+                        mNoteList=mViewModel.mNoteList.getValue();
+                    }
+                }else{
+                    mNoteList=mViewModel.mNoteList.getValue();
+                }
+                mNoteAdapters = new NoteAdapters(MainActivity.this,mNoteList);
+                binding.rvNotes.setAdapter(mNoteAdapters);
+            }
+        });
+
+        binding.etSearchNote.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(!binding.etSearchNote.getText().toString().isEmpty()){
+                    String query=binding.etSearchNote.getText().toString();
+                    if(!query.isEmpty()){
+                        mNoteList=mViewModel.getFilterList(query);
+                        Log.d("fenil", "onQueryTextSubmit: String "+query);
+                        Log.d("fenil", "onQueryTextSubmit: "+mNoteList.size());
+                    }else{
+                        mNoteList=mViewModel.mNoteList.getValue();
+                    }
+                }else{
+                    mNoteList=mViewModel.mNoteList.getValue();
+                }
+                mNoteAdapters = new NoteAdapters(MainActivity.this,mNoteList);
+                binding.rvNotes.setAdapter(mNoteAdapters);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 

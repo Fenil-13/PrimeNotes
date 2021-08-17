@@ -7,4 +7,5 @@
     <string name="add_sample_data">ADD SAMPLE DATA</string>
     <string name="delete_all_data">DELETE ALL DATA</string>
     <string name="new_note">New Note</string>
+    <string name="search_here">Search Here</string>
 </resources>

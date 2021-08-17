@@ -6,8 +6,10 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:gravity="center"
+    android:layout_margin="@dimen/tv_10"
     android:background="@color/white"
     android:layout_height="wrap_content">
+
     <TextView
         android:id="@+id/tvNotesTitle"
         android:layout_width="0dp"
